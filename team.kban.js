@@ -4,8 +4,8 @@ import { Agent, Task, Team } from "kaibanjs";
 const projectPlanner = new Agent({
   name: "Lucas Carvalho",
   role: "Project Planner",
-  goal: "Create a detailed plan for AI agents development and implementation.",
-  background: "Expert in agile project management and AI systems integration.",
+  goal: "Create a detailed plan for a creating a board game.",
+  background: "Expert in agile project management and Board game design.",
   tools: [], // Tools can be added as needed
 });
 
@@ -43,45 +43,55 @@ const team = new Team({
   agents: [projectPlanner, riskAnalyst],
   tasks: [projectPlanningTask, riskAssessmentTask],
   inputs: {
-    inputDoCliente: `Project Name: Implementation of an AI Agent System for Customer Service.
+    inputDoCliente: `Project Name: Medieval Fantasy Trading Card Game - "Kingdoms & Legends"
+
 Objectives:
-- Develop and implement AI agents capable of answering common customer questions, processing support requests, and escalating to human teams when necessary.
-- Reduce average response time in customer service by 30%.
-- Ensure integration with existing CRM system.
+- Design and develop a strategic card-based board game for 2-4 players with medieval fantasy theme.
+- Create engaging gameplay mechanics that balance luck and strategy.
+- Ensure average game duration of 45-60 minutes.
 
-Timeline: 6 months.
+Timeline: 4 months.
 
-Budget: $30,000.
+Budget: $15,000.
 
 Main Deliverables:
-- Functional prototype of AI agent trained with historical customer service data.
-- CRM integration system (HubSpot).
-- Administrative interface to monitor and adjust agent interactions.
-- Automated monthly reports on agent performance (resolution rate, customer feedback, etc.).
+- Complete rulebook with gameplay mechanics and card interactions.
+- 200 unique card designs with artwork and balanced attributes.
+- Game board design and prototype.
+- Playtesting documentation and balance adjustments.
+- Print-ready files for cards, board, and packaging.
 
 Constraints:
-- Ensure agent operates across multiple channels (website chat, WhatsApp, and email).
-- Initial AI model training must be done with data provided by customer service department, respecting privacy laws (GDPR).
-- System needs to be prepared to handle an average of 1,000 simultaneous interactions.
+- Cards must be standard poker size (2.5" x 3.5") for cost-effective production.
+- Game mechanics must be easily learned within 15 minutes.
+- All artwork must be original or properly licensed.
+- Components must fit within a 12" x 12" x 2" box.
 
 Resources:
-- Machine Learning team consisting of 2 developers and 1 AI specialist.
-- External consultant for CRM integration.
-- 2-year historical database of customer interactions.
+- Game designer (lead)
+- Graphic artist for card illustrations
+- Professional editor for rulebook
+- 3D designer for game pieces
+- Print production specialist
 
 Stakeholders:
-- Ana Martins (Customer Service Manager).
-- Rafael Oliveira (IT Manager).
-- Pedro Mendes (Business Analyst).
+- Michael Chen (Lead Game Designer)
+- Sarah Williams (Art Director)
+- David Thompson (Production Manager)
+- Lisa Garcia (Marketing Director)
 
 Special Requirements:
-- Agent must be able to handle colloquial language and possible grammatical errors.
-- Customer feedback must be collected after each interaction for continuous model improvement.
+- Color-blind friendly design elements
+- Multi-language support for rules (English, Spanish, French)
+- Durable card stock with linen finish
+- Environmental-friendly packaging materials
 
 Risks and Considerations:
-- Risk of inconsistencies in historical data used for model training.
-- Possible delays due to CRM integration.
-- Need for continuous adjustments during first 3 months after launch.`,
+- Potential artwork delivery delays
+- Balance issues discovered during playtesting
+- Manufacturing lead times may affect launch schedule
+- Competition from similar games in the market
+- Initial print run quantity decisions`,
   },
   env: {
     OPENAI_API_KEY:
