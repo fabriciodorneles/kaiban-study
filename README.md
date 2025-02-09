@@ -71,7 +71,7 @@ http://localhost:5174
 
 ## Customizing Agents
 
-You can customize the agents by editing the `team.kban.js` file. Remember to:
+Currently the AI/agents are configured to build Tabletop Boardgame project plan with risk management. But you can customize the agents by editing the `team.kban.js` file. Remember to:
 
 1. Clearly define each agent's role and objective
 2. Specify the tasks that each agent should perform
