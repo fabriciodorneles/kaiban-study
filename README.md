@@ -1,125 +1,84 @@
-# Demo KaibanJS - Agentes de IA para Planejamento de Projetos
+# KaibanJS Demo - AI Agents for Project Planning
 
-Este é um projeto demonstrativo que utiliza KaibanJS para criar uma equipe de agentes de IA especializados em planejamento de projetos.
+This is a demo project that uses KaibanJS to create a team of AI agents specialized in project planning.
 
-## Pré-requisitos
+## Prerequisites
 
-- Node.js instalado (versão 16 ou superior)
-- Uma chave de API da OpenAI
-- Git instalado
+- Node.js installed (version 16 or higher)
+- An OpenAI API key
+- Git installed
 
-## Instalação Rápida (Via Fork)
+## Quick Installation (Via Fork)
 
-1. Faça um fork deste repositório clicando no botão "Fork" no canto superior direito
+1. Fork this repository by clicking the "Fork" button in the top right corner
 
-2. Clone seu fork:
+2. Clone your fork:
+
 ```bash
-git clone https://github.com/seu-usuario/kaiban-demo
+git clone https://github.com/your-username/kaiban-demo
 cd kaiban-demo
 ```
 
-3. Instale as dependências:
+3. Install dependencies:
+
 ```bash
 npm install
 ```
 
-4. Copie o arquivo de ambiente e configure sua chave API:
+4. Copy the environment file and configure your API key:
+
 ```bash
 cp .env.example .env
 ```
-Edite o arquivo `.env` e adicione sua chave API da OpenAI
 
-5. Inicie o servidor:
+Edit the `.env` file and add your OpenAI API key
+
+5. Start the server:
+
 ```bash
 npm run kaiban
 ```
 
-6. Acesse a aplicação no navegador:
+6. Access the application in your browser:
+
 ```
 http://localhost:5174
 ```
 
-## Instalação Manual (Criando do Zero)
+## Project Structure
 
-Se preferir criar o projeto do zero:
+- `.env` - File with environment variables (API key)
+- `team.kban.js` - Definition of agents and their tasks
+- `.kaiban/` - Directory with KaibanJS configurations
 
-1. Crie uma nova pasta para o projeto e acesse ela:
-```bash
-mkdir meu-projeto-kaiban
-cd meu-projeto-kaiban
-```
+## Available Agents
 
-2. Inicialize um novo projeto Vite com React:
-```bash
-npx create-vite@latest . --template react
-```
+1. **Project Planner**
 
-3. Instale as dependências:
-```bash
-npm install
-```
+   - Responsible for creating detailed project plans
+   - Experience in agile project management
 
-4. Instale o KaibanJS:
-```bash
-npm install kaibanjs
-```
+2. **Risk Analyst**
+   - Specialist in risk assessment
+   - Focus on legal compliance and GDPR
 
-5. Inicialize o KaibanJS:
-```bash
-npx kaibanjs@latest init
-```
+## How to Use
 
-6. Copie o arquivo `team.kban.js` deste repositório para a raiz do seu projeto
+1. Access the application in your browser
+2. Click on "Start Workflow"
+3. Monitor the agents' work in real-time
+4. View the final result in the results section
 
-7. Crie um arquivo `.env` na raiz do projeto e adicione sua chave da OpenAI:
-```
-VITE_OPENAI_API_KEY=sua-chave-api-aqui
-```
+## Customizing Agents
 
-8. Inicie o servidor:
-```bash
-npm run kaiban
-```
+You can customize the agents by editing the `team.kban.js` file. Remember to:
 
-## Estrutura do Projeto
+1. Clearly define each agent's role and objective
+2. Specify the tasks that each agent should perform
+3. Provide relevant inputs for the tasks
+4. Restart the server after making changes
 
-- `.env` - Arquivo com as variáveis de ambiente (chave da API)
-- `team.kban.js` - Definição dos agentes e suas tarefas
-- `.kaiban/` - Diretório com as configurações do KaibanJS
+## Support
 
-## Agentes Disponíveis
-
-1. **Lucas Carvalho (Planejador de Projetos)**
-   - Responsável por criar planos detalhados de projeto
-   - Experiência em gerenciamento de projetos ágeis
-
-2. **Marina Souza (Analista de Riscos)**
-   - Especialista em avaliação de riscos
-   - Foco em conformidade legal e LGPD
-
-## Como Usar
-
-1. Acesse a aplicação no navegador
-2. Clique em "Start Workflow"
-3. Acompanhe o trabalho dos agentes em tempo real
-4. Veja o resultado final na seção de resultados
-
-## Observações Importantes
-
-- Mantenha sua chave API segura e nunca a compartilhe
-- O primeiro processamento pode levar alguns segundos
-- Os agentes trabalham de forma sequencial, um após o outro
-- Sempre que fizer alterações no arquivo `team.kban.js`, reinicie o servidor
-
-## Personalizando os Agentes
-
-Você pode personalizar os agentes editando o arquivo `team.kban.js`. Lembre-se de:
-1. Definir claramente o papel e objetivo de cada agente
-2. Especificar as tarefas que cada agente deve realizar
-3. Fornecer inputs relevantes para as tarefas
-4. Reiniciar o servidor após as alterações
-
-## Suporte
-
-Para mais informações sobre o KaibanJS, visite:
+For more information about KaibanJS, visit:
 https://kaibanjs.com

@@ -1,89 +1,92 @@
-import { Agent, Task, Team } from 'kaibanjs';
+import { Agent, Task, Team } from "kaibanjs";
 
 // Define agents
 const projectPlanner = new Agent({
-    name: 'Lucas Carvalho',
-    role: 'Planejador de Projetos',
-    goal: 'Criar um plano detalhado para o desenvolvimento e implementação de agentes de IA.',
-    background: 'Especialista em gerenciamento de projetos ágeis e integração de sistemas de IA.',
-    tools: [] // Ferramentas podem ser adicionadas conforme necessário
+  name: "Lucas Carvalho",
+  role: "Project Planner",
+  goal: "Create a detailed plan for AI agents development and implementation.",
+  background: "Expert in agile project management and AI systems integration.",
+  tools: [], // Tools can be added as needed
 });
 
 const riskAnalyst = new Agent({
-    name: 'Marina Souza',
-    role: 'Analista de Riscos',
-    goal: `Identificar possíveis riscos técnicos, organizacionais e legais no projeto 
-           e propor estratégias para mitigá-los.`,
-    background: 'Especialista em avaliação de riscos para projetos de tecnologia e conformidade legal (LGPD).',
-    tools: []
+  name: "Marina Souza",
+  role: "Risk Analyst",
+  goal: `Identify potential technical, organizational, and legal risks in the project 
+           and propose mitigation strategies.`,
+  background:
+    "Expert in risk assessment for technology projects and legal compliance (GDPR).",
+  tools: [],
 });
 
 // Define tasks
 const projectPlanningTask = new Task({
-    description: `Criar um plano detalhado do projeto com etapas, cronograma e entregáveis, 
-                  baseado no input do cliente.
-                  inputDoCliente: {inputDoCliente}`,
-    expectedOutput: 'Plano de projeto completo com etapas, prazos e marcos definidos.',
-    agent: projectPlanner
+  description: `Create a detailed project plan with steps, timeline, and deliverables, 
+                  based on client input.
+                  clientInput: {inputDoCliente}`,
+  expectedOutput:
+    "Complete project plan with defined stages, deadlines, and milestones.",
+  agent: projectPlanner,
 });
 
 const riskAssessmentTask = new Task({
-    description: `Analisar o plano de projeto e identificar possíveis riscos. 
-                  Sugerir estratégias de mitigação para minimizar os impactos.
-                  planoDeProjeto: {planoDeProjeto}`,
-    expectedOutput: 'Relatório de avaliação de riscos com recomendações de mitigação.',
-    agent: riskAnalyst
+  description: `Analyze the project plan and identify potential risks. 
+                  Suggest mitigation strategies to minimize impacts.
+                  projectPlan: {planoDeProjeto}`,
+  expectedOutput: "Risk assessment report with mitigation recommendations.",
+  agent: riskAnalyst,
 });
 
 // Define team
 const team = new Team({
-    name: 'Equipe de Implementação de Agentes de IA',
-    agents: [projectPlanner, riskAnalyst],
-    tasks: [projectPlanningTask, riskAssessmentTask],
-    inputs: {
-        inputDoCliente: `Nome do Projeto: Implementação de um Sistema de Agentes de IA para Atendimento ao Cliente. 
-Objetivos: 
-- Desenvolver e implementar agentes de IA capazes de responder a dúvidas comuns de clientes, processar solicitações de suporte e realizar escalonamentos para equipes humanas, quando necessário. 
-- Reduzir o tempo médio de resposta no atendimento ao cliente em 30%. 
-- Garantir integração com o sistema de CRM existente.
+  name: "AI Agents Implementation Team",
+  agents: [projectPlanner, riskAnalyst],
+  tasks: [projectPlanningTask, riskAssessmentTask],
+  inputs: {
+    inputDoCliente: `Project Name: Implementation of an AI Agent System for Customer Service.
+Objectives:
+- Develop and implement AI agents capable of answering common customer questions, processing support requests, and escalating to human teams when necessary.
+- Reduce average response time in customer service by 30%.
+- Ensure integration with existing CRM system.
 
-Cronograma: 6 meses.
+Timeline: 6 months.
 
-Orçamento: R$ 150.000.
+Budget: $30,000.
 
-Entregáveis Principais: 
-- Protótipo funcional de agente de IA treinado com dados históricos de atendimento ao cliente. 
-- Sistema de integração com o CRM (HubSpot). 
-- Interface administrativa para monitorar e ajustar as interações do agente. 
-- Relatórios mensais automatizados sobre desempenho do agente (taxa de resolução, feedback dos clientes, etc.).
+Main Deliverables:
+- Functional prototype of AI agent trained with historical customer service data.
+- CRM integration system (HubSpot).
+- Administrative interface to monitor and adjust agent interactions.
+- Automated monthly reports on agent performance (resolution rate, customer feedback, etc.).
 
-Restrições: 
-- Garantir que o agente opere em múltiplos canais (chat no site, WhatsApp e e-mail). 
-- Treinamento inicial do modelo de IA deve ser feito com os dados fornecidos pelo departamento de atendimento ao cliente, respeitando as leis de privacidade (LGPD). 
-- O sistema precisa estar preparado para atender uma média de 1.000 interações simultâneas.
+Constraints:
+- Ensure agent operates across multiple channels (website chat, WhatsApp, and email).
+- Initial AI model training must be done with data provided by customer service department, respecting privacy laws (GDPR).
+- System needs to be prepared to handle an average of 1,000 simultaneous interactions.
 
-Recursos: 
-- Equipe de Machine Learning composta por 2 desenvolvedores e 1 especialista em IA. 
-- Consultor externo para integração com CRM. 
-- Banco de dados histórico de 2 anos de interações com clientes.
+Resources:
+- Machine Learning team consisting of 2 developers and 1 AI specialist.
+- External consultant for CRM integration.
+- 2-year historical database of customer interactions.
 
-Stakeholders: 
-- Ana Martins (Gerente de Atendimento ao Cliente). 
-- Rafael Oliveira (Gerente de TI). 
-- Pedro Mendes (Analista de Negócios).
+Stakeholders:
+- Ana Martins (Customer Service Manager).
+- Rafael Oliveira (IT Manager).
+- Pedro Mendes (Business Analyst).
 
-Requisitos Especiais: 
-- O agente deve ser capaz de lidar com linguagem coloquial e possíveis erros gramaticais. 
-- Feedback dos clientes deve ser coletado após cada interação para aprimoramento contínuo do modelo.
+Special Requirements:
+- Agent must be able to handle colloquial language and possible grammatical errors.
+- Customer feedback must be collected after each interaction for continuous model improvement.
 
-Riscos e Considerações: 
-- Risco de inconsistências nos dados históricos utilizados para treinamento do modelo. 
-- Possíveis atrasos devido à integração com o CRM. 
-- Necessidade de ajustes contínuos durante os primeiros 3 meses após o lançamento.`
-    },
-    env: {
-        OPENAI_API_KEY: import.meta.env.VITE_OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE'
-    }
+Risks and Considerations:
+- Risk of inconsistencies in historical data used for model training.
+- Possible delays due to CRM integration.
+- Need for continuous adjustments during first 3 months after launch.`,
+  },
+  env: {
+    OPENAI_API_KEY:
+      import.meta.env.VITE_OPENAI_API_KEY || "YOUR_OPENAI_API_KEY_HERE",
+  },
 });
 
 export default team;
