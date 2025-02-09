@@ -1,6 +1,6 @@
-# KaibanJS Demo - AI Agents for Project Planning
+# KaibanJS Study - AI Agents for Project Planning
 
-This is a demo project that uses KaibanJS to create a team of AI agents specialized in project planning.
+This is a study project that uses KaibanJS to create a team of AI agents specialized in project planning.
 
 ## Prerequisites
 
